@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Nosotros - Voces del Pasado{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+
+    <!-- Historia del Restaurante -->
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+            <h1 class="display-5 fw-bold mb-3" style="color: #722f37;">Nuestra Historia</h1>
+            <p class="lead">
+                En <strong>Voces del Pasado</strong> traemos los sabores milenarios del corazón de Oaxaca hasta tu mesa. 
+                Nuestra cocina rinde homenaje a las recetas tradicionales heredadas de generación en generación, 
+                utilizando ingredientes auténticos como los chiles oaxaqueños, el quesillo fresco y el cacao artesanal.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <div class="p-4 bg-light rounded-3 shadow-sm border text-center">
+                <h4 class="text-secondary mb-3">Visítanos en Nezahualcóyotl</h4>
+                <p class="mb-1"><strong>Ubicación:</strong> CONALEP Nezahualcóyotl 3</p>
+                <p class="mb-0"><strong>Horario de atención:</strong> Lunes a Domingo de 7:00 am a 6:00 pm</p>
+            </div>
+        </div>
+    </div>
+    
+    <hr class="my-5">
+
+    <!-- Tesoros Turísticos de Oaxaca -->
+    <div class="text-center mb-4">
+        <h2 class="fw-bold" style="color: #722f37;">Rincón Oaxaqueño: Conoce sus Maravillas</h2>
+        <p class="text-muted">Inspirados por la riqueza cultural y los paisajes emblemáticos de la tierra oaxaqueña.</p>
+    </div>
+
+    <div class="row g-4">
+        <!-- 1. Monte Albán -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 overflow-hidden">
+                <img src="{% static 'Turismo_1.jpg' %}" class="card-img-top" alt="Monte Albán" style="height: 300px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold" style="color: #722f37;">Monte Albán</h5>
+                    <p class="card-text">
+                        Antigua capital de la civilización Zapoteca. Sus imponentes pirámides y plazas ofrecen una ventana a la grandeza precolombina de los Valles Centrales.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Hierve el Agua -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 overflow-hidden">
+                <img src="{% static 'Turismo_2.jpg' %}" class="card-img-top" alt="Hierve el Agua" style="height: 300px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold" style="color: #722f37;">Hierve el Agua</h5>
+                    <p class="card-text">
+                        Espectaculares cascadas petrificadas formadas durante miles de años, con pozas naturales de aguas termales y una vista panorámica única de la sierra.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Templo de Santo Domingo -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 overflow-hidden">
+                <img src="{% static 'Turismo_3.jpg' %}" class="card-img-top" alt="Templo de Santo Domingo" style="height: 300px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold" style="color: #722f37;">Templo de Santo Domingo</h5>
+                    <p class="card-text">
+                        Joya de la arquitectura barroca en el centro histórico de la ciudad de Oaxaca, rodeado por el Jardín Etnobotánico y una vibrante vida cultural.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Árbol del Tule -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 overflow-hidden">
+                <img src="{% static 'Turismo_4.jpg' %}" class="card-img-top" alt="El Árbol del Tule" style="height: 300px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold" style="color: #722f37;">El Árbol del Tule</h5>
+                    <p class="card-text">
+                        Legendario ahuehuete milenario poseedor del tronco más grueso del mundo. Un ser vivo ancestral venerado por las leyendas y la historia oaxaqueña.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Mitla -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 overflow-hidden">
+                <img src="{% static 'Turismo_5.jpg' %}" class="card-img-top" alt="Zona Arqueológica de Mitla" style="height: 300px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold" style="color: #722f37;">Mitla</h5>
+                    <p class="card-text">
+                        Conocida como la "Ciudad de los Muertos", célebre por sus detallados mosaicos y grecas geométricas talladas en piedra sin necesidad de mezcla alguna.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Lagunas de Chacahua -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 overflow-hidden">
+                <img src="{% static 'Turismo_6.jpg' %}" class="card-img-top" alt="Lagunas de Chacahua" style="height: 300px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold" style="color: #722f37;">Lagunas de Chacahua</h5>
+                    <p class="card-text">
+                        Parque nacional rodeado de manglares, vida silvestre y playas vírgenes en la costa oaxaqueña, famoso por el espectáculo nocturno de bioluminiscencia.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Ubicación | Voces del Pasado{% endblock %}
+
+{% block content %}
+<section class="container py-5">
+  <h2 class="text-center fw-bold mb-2" style="color: #722f37;">Visítanos</h2>
+  <div class="mx-auto bg-warning rounded mb-4" style="width: 85px; height: 4px;"></div>
+  <p class="text-center text-muted mb-5">Nos encantará recibirte y compartir contigo la riqueza de nuestra cocina.</p>
+
+  <div class="row g-4 align-items-stretch">
+    <!-- Tarjeta de datos -->
+    <div class="col-lg-6">
+      <div class="card border-0 shadow-sm p-4 rounded-4 bg-white h-100 d-flex flex-column justify-content-center">
+        <h3 class="h4 mb-3" style="color: #722f37;">📍 Ubicación</h3>
+        <p class="fw-bold text-dark mb-1">CONALEP Nezahualcóyotl 3</p>
+        <p class="text-muted mb-4">Estado de México, México.</p>
+
+        <h3 class="h4 mb-3" style="color: #722f37;">🕒 Horario de Atención</h3>
+        <p class="fw-bold text-dark mb-1">Lunes a Domingo</p>
+        <p class="text-muted mb-3">7:00 am a 6:00 pm</p>
+        <p class="small text-success fw-bold">Abrimos toda la semana</p>
+      </div>
+    </div>
+
+    <!-- Mapa integrado -->
+    <div class="col-lg-6">
+      <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.30292912206!2d-99.01596632519828!3d19.399313081873096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fce83de9913d%3A0x7d79809cc12b23c7!2sCONALEP%20Nezahualc%C3%B3yotl%20III!5e0!3m2!1ses-419!2smx!4v1794195661084!5m2!1ses-419!2smx" 
+          width="100%" 
+          height="100%" 
+          style="border:0; min-height: 380px;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Inicio | Voces del Pasado{% endblock %}
+
+{% block content %}
+<section class="hero text-white text-center d-flex align-items-center justify-content-center" style="min-height: 85vh; background: linear-gradient(rgba(40, 17, 14, 0.68), rgba(40, 17, 14, 0.72)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85') center/cover no-repeat;">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        
+        <!-- LOGO MUY GRANDE AL CENTRO -->
+        <div class="mb-4">
+          <img src="{% static 'logo.jpeg' %}" alt="Logo Voces del Pasado" width="240" height="240" class="rounded-circle bg-white p-3 shadow-lg object-fit-cover border border-warning border-4">
+        </div>
+
+        <span class="badge border border-warning text-warning rounded-pill px-3 py-2 mb-3 tracking-wide">TRADICIÓN · CULTURA · SABOR</span>
+        <h1 class="display-4 fw-bold mb-4">Oaxaca donde la historia se convierte en <span class="text-warning">tradición</span></h1>
+        <p class="lead mb-4">Descubre los sabores que cuentan historias, las recetas que pasan de generación en generación y la calidez de la gastronomía oaxaqueña.</p>
+        <a href="{% url 'platillos' %}" class="btn btn-warning text-dark fw-bold px-4 py-2 rounded-pill">Descubre nuestros sabores</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

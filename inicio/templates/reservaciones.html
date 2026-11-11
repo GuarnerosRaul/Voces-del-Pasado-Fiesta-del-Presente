@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Reservaciones | Voces del Pasado{% endblock %}
+
+{% block content %}
+<section class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-7 bg-white p-4 p-md-5 rounded-4 shadow-sm">
+      <h2 class="text-center fw-bold mb-2" style="color: #722f37;">Reserva tu mesa</h2>
+      <div class="mx-auto bg-warning rounded mb-4" style="width: 85px; height: 4px;"></div>
+      <p class="text-center text-muted mb-4">Completa el formulario para registrar tu reservación directamente en el sistema.</p>
+
+      <form method="POST" class="needs-validation" novalidate>
+        {% csrf_token %}
+        
+        <div class="mb-3">
+          <label class="form-label fw-bold" style="color: #722f37;">Nombre completo</label>
+          {{ form.nombre }}
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold" style="color: #722f37;">Número de teléfono</label>
+          {{ form.numero }}
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold" style="color: #722f37;">Método de pago</label>
+          {% if form.metodo_pago %}
+            {{ form.metodo_pago }}
+          {% else %}
+            <select name="metodo_pago" class="form-select" required>
+              <option value="" selected disabled>Selecciona una opción</option>
+              <option value="efectivo">Efectivo</option>
+              <option value="tarjeta">Tarjeta de crédito</option>
+            </select>
+          {% endif %}
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold" style="color: #722f37;">¿Alguna celebración?</label>
+          {{ form.celebracion }}
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold" style="color: #722f37;">Alergias o restricciones</label>
+          {{ form.alergias }}
+        </div>
+
+        <div class="text-center mt-4">
+          <button type="submit" class="btn text-white fw-bold px-5 py-2 rounded-pill shadow-sm" style="background-color: #b95c3b;">Confirmar reservación</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Menú Digital | Voces del Pasado{% endblock %}
+
+{% block content %}
+<section class="container py-5 text-center">
+  <h2 class="fw-bold mb-2" style="color: #722f37;">Menú Digital</h2>
+  <div class="mx-auto bg-warning rounded mb-4" style="width: 85px; height: 4px;"></div>
+  <p class="text-muted mb-4">Consulta nuestro menú completo o descárgalo en formato PDF.</p>
+
+  <div class="mb-4">
+    <!-- Botón de descarga directa (Apunta al PDF) -->
+    <a href="{% static 'menu.pdf' %}" class="btn btn-warning text-dark fw-bold px-4 py-2 rounded-pill shadow-sm" download="menu-voces-del-pasado.pdf">
+      📥 Descargar Menú en PDF
+    </a>
+  </div>
+
+  <!-- Visor en pantalla (Muestra la Imagen) -->
+  <div class="card shadow-sm border-0 mx-auto overflow-hidden rounded-4" style="max-width: 800px;">
+    <div class="card-body p-0">
+      <img src="{% static 'menu.jpeg' %}" alt="Menú Voces del Pasado" class="img-fluid w-100 h-auto">
+    </div>
+  </div>
+</section>
+{% endblock %}

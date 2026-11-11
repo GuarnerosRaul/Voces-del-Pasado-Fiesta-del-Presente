@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Reseñas - Voces del Pasado{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="text-center mb-5">
+        <h1 class="text-center fw-bold mb-2 display-5" style="color: #722f37;">Déjanos tu opinion</h1>
+        <p class="lead">Ayudanos a mejorar nuestro servicio mediante tus comentarios.</p>
+    </div>
+    <!-- Formulario para Agregar Reseña -->
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow border-0">
+                <div class="card-header bg-success text-white py-3">
+                    <h5 class="card-title mb-0">Déjanos tu Comentario</h5>
+                </div>
+                <div class="card-body p-4">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="calificacion" class="form-label">Calificación</label>
+                            <select class="form-select" id="calificacion" name="calificacion" required>
+                                <option value="5">★★★★★ - Excelente</option>
+                                <option value="4">★★★★☆ - Muy Buena</option>
+                                <option value="3">★★★☆☆ - Buena</option>
+                                <option value="2">★★☆☆☆ - Regular</option>
+                                <option value="1">★☆☆☆☆ - Mala</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="comentario" class="form-label">Comentario</label>
+                            <textarea class="form-control" id="comentario" name="comentario" rows="4" placeholder="Platícanos tu experiencia..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 fw-bold">Enviar Reseña</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

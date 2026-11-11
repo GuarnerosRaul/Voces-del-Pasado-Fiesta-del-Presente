@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Platillos | Voces del Pasado{% endblock %}
+
+{% block content %}
+<section class="container py-5">
+  <h2 class="text-center fw-bold mb-2" style="color: #722f37;">Nuestros Sabores</h2>
+  <div class="mx-auto bg-warning rounded mb-4" style="width: 85px; height: 4px;"></div>
+  <p class="text-center text-muted mb-5">Conoce algunos de los platillos más representativos de nuestra cocina.</p>
+
+  <div class="row g-4">
+    <!-- Platillo 1 -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+        <img src="{% static 'Platillo_1.jpeg' %}" class="card-img-top" alt="Mole negro" style="height: 250px; object-fit: cover;">
+        <div class="card-body text-center bg-white">
+          <h3 class="h4 fw-bold" style="color: #722f37;">Mole Negro</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Platillo 2 -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+        <img src="{% static 'Platillo_2.jpeg' %}" class="card-img-top" alt="Tlayuda tradicional" style="height: 250px; object-fit: cover;">
+        <div class="card-body text-center bg-white">
+          <h3 class="h4 fw-bold" style="color: #722f37;">Tlayuda Tradicional</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Platillo 3 -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+        <img src="{% static 'Platillo_3.jpeg' %}" class="card-img-top" alt="Antojitos oaxaqueños" style="height: 250px; object-fit: cover;">
+        <div class="card-body text-center bg-white">
+          <h3 class="h4 fw-bold" style="color: #722f37;">Antojitos Oaxaqueños</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Platillo 4 -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+        <img src="{% static 'Bebida_1.jpeg' %}" class="card-img-top" alt="Especialidad" style="height: 250px; object-fit: cover;">
+        <div class="card-body text-center bg-white">
+          <h3 class="h4 fw-bold" style="color: #722f37;">Especialidad</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
