@@ -9,4 +9,5 @@ urlpatterns = [
     path('ubicacion/', views.ubicacion, name='ubicacion'),
     path('reservaciones/', views.vista_reservaciones, name='reservaciones'),
     path('resenas/', views.resenas, name='resenas'),
+    path('graficas/', views.graficas_view, name='graficas'),  # <--- Ruta protegida para las gráficas
 ]

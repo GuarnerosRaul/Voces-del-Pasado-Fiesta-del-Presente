@@ -1,3 +1,9 @@
+import io
+import base64
+import matplotlib
+matplotlib.use('Agg')  # Indispensable para Render (servidor sin pantalla)
+import matplotlib.pyplot as plt
+
 from django.shortcuts import render, redirect
 from .forms import ReservacionForm
 from .models import Resena  # <--- Importante: Importar el modelo de Reseña
@@ -48,3 +54,60 @@ def resenas(request):
     lista_resenas = Resena.objects.all().order_by('-creado_en')
     
     return render(request, 'resenas.html', {'resenas': lista_resenas})
+
+def graficas_view(request):
+    # 1. Verificar si ya ingresó la contraseña en esta sesión
+    acceso_autorizado = request.session.get('acceso_graficas', False)
+    error = None
+
+    if request.method == 'POST':
+        clave_ingresada = request.POST.get('clave', '')
+        if clave_ingresada == '2110TXJ':  # Contraseña protegida
+            request.session['acceso_graficas'] = True
+            acceso_autorizado = True
+        else:
+            error = "Contraseña incorrecta. Intenta de nuevo."
+
+    # Si no ha puesto la clave correcta, muestra la pantalla de contraseña
+    if not acceso_autorizado:
+        return render(request, 'inicio/login_graficas.html', {'error': error})
+
+    # 2. Consultar los datos reales desde PostgreSQL usando tu modelo Resena
+    c5 = Resena.objects.filter(calificacion=5).count()
+    c4 = Resena.objects.filter(calificacion=4).count()
+    c3 = Resena.objects.filter(calificacion=3).count()
+    c2 = Resena.objects.filter(calificacion=2).count()
+    c1 = Resena.objects.filter(calificacion=1).count()
+
+    categorias = ['5 Estrellas', '4 Estrellas', '3 Estrellas', '2 Estrellas', '1 Estrella']
+    cantidades = [c5, c4, c3, c2, c1]
+
+    # 3. Dibujar la gráfica estadística con Matplotlib
+    fig, ax = plt.subplots(figsize=(7, 4))
+    barras = ax.bar(categorias, cantidades, color='#722F37', width=0.55)
+
+    ax.set_title('Satisfacción de Clientes - Voces del Pasado', fontsize=13, fontweight='bold', pad=15)
+    ax.set_ylabel('Cantidad de Evaluaciones')
+    ax.grid(axis='y', linestyle='--', alpha=0.4)
+
+    for barra in barras:
+        altura = barra.get_height()
+        ax.annotate(f'{altura}',
+                    xy=(barra.get_x() + barra.get_width() / 2, altura),
+                    xytext=(0, 3), textcoords="offset points",
+                    ha='center', va='bottom', fontweight='bold')
+
+    plt.tight_layout()
+
+    # 4. Convertir la gráfica a Base64 para mostrarla en el HTML sin guardar archivos
+    buffer = io.BytesIO()
+    plt.savefig(buffer, format='png', dpi=120)
+    buffer.seek(0)
+    grafica_base64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
+    buffer.close()
+    plt.close(fig)
+
+    return render(request, 'inicio/graficas.html', {
+        'grafica': grafica_base64,
+        'total_registros': sum(cantidades),
+    })
