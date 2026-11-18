@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Graficas | Voces del Pasado{% endblock %}
+
+{% block content %}
+<div class="container py-5 text-center">
+    <h2 class="fw-bold mb-2" style="color: #722F37;">Resultados del Evento</h2>
+    <p class="text-muted mb-4">Total de evaluaciones registradas: <strong>{{ total_registros }}</strong></p>
+
+    <div class="card shadow-sm border-0 mx-auto p-4" style="max-width: 750px;">
+        {% if grafica %}
+            <img src="data:image/png;base64,{{ grafica }}" alt="Gráfica de resultados" class="img-fluid rounded">
+        {% else %}
+            <p class="text-muted">Aún no hay datos suficientes para generar la gráfica.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

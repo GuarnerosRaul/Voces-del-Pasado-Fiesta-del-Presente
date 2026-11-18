@@ -56,20 +56,19 @@ def resenas(request):
     return render(request, 'resenas.html', {'resenas': lista_resenas})
 
 def graficas_view(request):
-    # 1. Verificar si ya ingresó la contraseña en esta sesión
-    acceso_autorizado = request.session.get('acceso_graficas', False)
     error = None
 
     if request.method == 'POST':
         clave_ingresada = request.POST.get('clave', '')
         if clave_ingresada == '2110TXJ':  # Contraseña protegida
             request.session['acceso_graficas'] = True
-            acceso_autorizado = True
+            request.session.modified = True
+            return redirect('graficas')  # Redirige por GET para evitar pantallas en blanco
         else:
             error = "Contraseña incorrecta. Intenta de nuevo."
 
-    # Si no ha puesto la clave correcta, muestra la pantalla de contraseña
-    if not acceso_autorizado:
+    # 1. Verificar si ya ingresó la contraseña en esta sesión
+    if not request.session.get('acceso_graficas', False):
         return render(request, 'login_graficas.html', {'error': error})
 
     # 2. Consultar los datos reales desde PostgreSQL usando tu modelo Resena
