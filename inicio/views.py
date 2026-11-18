@@ -70,7 +70,7 @@ def graficas_view(request):
 
     # Si no ha puesto la clave correcta, muestra la pantalla de contraseña
     if not acceso_autorizado:
-        return render(request, 'inicio/login_graficas.html', {'error': error})
+        return render(request, 'login_graficas.html', {'error': error})
 
     # 2. Consultar los datos reales desde PostgreSQL usando tu modelo Resena
     c5 = Resena.objects.filter(calificacion=5).count()
@@ -107,7 +107,7 @@ def graficas_view(request):
     buffer.close()
     plt.close(fig)
 
-    return render(request, 'inicio/graficas.html', {
+    return render(request, 'graficas.html', {
         'grafica': grafica_base64,
         'total_registros': sum(cantidades),
     })
