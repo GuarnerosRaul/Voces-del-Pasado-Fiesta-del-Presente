@@ -10,4 +10,5 @@ urlpatterns = [
     path('reservaciones/', views.vista_reservaciones, name='reservaciones'),
     path('resenas/', views.resenas, name='resenas'),
     path('graficas/', views.graficas_view, name='graficas'),  # <--- Ruta protegida para las gráficas
+    path('graficas/salir/', views.logout_graficas, name='logout_graficas'),
 ]

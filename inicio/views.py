@@ -110,3 +110,7 @@ def graficas_view(request):
         'grafica': grafica_base64,
         'total_registros': sum(cantidades),
     })
+def logout_graficas(request):
+    if 'acceso_graficas' in request.session:
+        del request.session['acceso_graficas']
+    return redirect('graficas')
